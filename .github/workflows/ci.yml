@@ -1,0 +1,57 @@
+name: Rflink Build Tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -U platformio
+        pio update
+
+
+    - name: ESP32_none_enabled
+      run: |
+        pio run --project-conf .travis.platformio.ini --environment ESP32_none_enabled
+    - name: ESP32_sw
+      run: |
+        pio run --project-conf .travis.platformio.ini --environment ESP32_sw
+    - name: ESP32_wm
+      run: |
+        pio run --project-conf .travis.platformio.ini --environment ESP32_wm
+    - name: ESP32_sw_mqtt
+      run: |
+        pio run --project-conf .travis.platformio.ini --environment ESP32_sw_mqtt
+    - name: ESP32_wm_mqtt
+      run: |
+        pio run --project-conf .travis.platformio.ini --environment ESP32_wm_mqtt
+
+
+    - name: D1_none_enabled
+      run: |
+        pio run --project-conf .travis.platformio.ini --environment D1_none_enabled
+    - name: D1_sw
+      run: |
+        pio run --project-conf .travis.platformio.ini --environment D1_sw
+    - name: D1_wm
+      run: |
+        pio run --project-conf .travis.platformio.ini --environment D1_wm
+    - name: D1_sw_mqtt
+      run: |
+        pio run --project-conf .travis.platformio.ini --environment D1_sw_mqtt
+    - name: D1_wm_mqtt
+      run: |
+        pio run --project-conf .travis.platformio.ini --environment D1_wm_mqtt
+
