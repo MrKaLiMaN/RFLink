@@ -1,0 +1,37 @@
+name: Rflink Build Tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -U platformio
+        pio update
+        pio lib install
+
+    - name: ESP_32_all_enabled
+#      continue-on-error: true
+      run: |
+        /bin/bash -c "find ./ | grep Update.h || true"
+        pio run --project-conf .travis.platformio.ini --environment ESP32_all_enabled
+
+    - name: ESP32_wifi_nowm
+#     continue-on-error: true
+      run: |
+        pio run --project-conf .travis.platformio.ini --environment ESP32_wifi_nowm
+
+
+
