@@ -149,6 +149,10 @@ namespace RFLink { namespace Radio {
     /**
      * don't use directly unless you know what you are doing.
      * */
+    void set_Radio_mode_RFM69_new(States new_state);
+    /**
+    * don't use directly unless you know what you are doing.
+    * */
     void set_Radio_mode_RFM69(States new_state);
     /**
      * don't use directly unless you know what you are doing.
