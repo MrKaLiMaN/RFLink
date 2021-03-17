@@ -81,7 +81,7 @@
 // Misc
 // -------------------
 #define PLUGIN_076 // CAME-TOP432 Gate/Door opener
-#define PLUGIN_090 // TIC PULSES 433Mhz V2 - Cartelectronic
+#define PLUGIN_110 // TIC PULSES 433Mhz V2 - Cartelectronic
 
 // -------------------
 // 868 MHZ
