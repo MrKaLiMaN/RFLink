@@ -1,5 +1,5 @@
 
-#define PLUGIN_DESC_090 "TicPulses Mrk"
+#define PLUGIN_DESC_110 "TicPulses Mrk"
 
 #define TIC_LENGTH_MIN 260
 #define TIC_LENGTH_MAX 300
@@ -8,14 +8,14 @@
 #define TIC_PULSE_MID 512   // 512
 #define TIC_PULSE_MAX 700   // 700
 
-#ifdef PLUGIN_090
+#ifdef PLUGIN_110
 
 #include "../4_Display.h"
 #include "../7_Utils.h"
 
 
 
-boolean Plugin_090(byte function, const char *string)
+boolean Plugin_110(byte function, const char *string)
 {
 
    //==================================================================================
