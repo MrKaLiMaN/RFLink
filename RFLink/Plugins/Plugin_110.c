@@ -261,21 +261,20 @@ Tu devrais ressortir sous ce format ce serait nativement géré
    display_Name(PSTR("TIC_PULSES_V2"));
 
    // Counter Id (5 bytes in payload, 4 bytes with RFLink)
-   display_IDn(counter_id , 4);
+   // display_IDn(counter_id , 4);
+   display_IDn(current_price , 4);
 
    // Current Price Time
-   // display_SWITCH(current_price);
+   display_SWITCH(current_price);
 
    // switch Current Price Time
-   // if(current_price == 3)
-   //    display_KWATT(index1);
-   // else
-   //    display_KWATT(index2);
-
-   display_KWATT(index2);
-
+   if(current_price == 0x02)
+      display_KWATT(index1);
+   else
+      display_KWATT(index2);
+   
    // display_SWITCH(0xA4);
-   // display_WATT(current_power);
+   display_WATT(current_power);
    display_BAT(battery);
 
    display_Footer();
