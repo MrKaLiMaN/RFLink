@@ -243,7 +243,7 @@ Tu devrais ressortir sous ce format ce serait nativement géré
 
    // Index Heures Creuses
    uint32_t index1 = 0;
-   for (int i = 8; i <=11 ; i++)
+   for (int i = 11; i >=8 ; i--)
    {
       index1 <<= 8;
       index1 |= payload[i];
